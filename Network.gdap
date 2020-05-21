@@ -1,0 +1,11 @@
+[config]
+
+name="Network"
+binary_type="remote"
+binary="ru.mobilap.godot:godot-network:+"
+
+[dependencies]
+
+local=[]
+remote=[]
+custom_maven_repos=["https://dl.bintray.com/mobilap/maven/"]

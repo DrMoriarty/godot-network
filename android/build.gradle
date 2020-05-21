@@ -5,6 +5,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
     }
 }
 
@@ -49,8 +50,50 @@ dependencies {
     compileOnly fileTree(dir: 'libs', include: ['godot-lib*.aar'])
 }
 
+group = 'ru.mobilap.godot'
+version = '0.0.1'
+ext {
+    artifact = 'godot-network'
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
 
 afterEvaluate {
-    generateReleaseBuildConfig.enabled = false
-    generateDebugBuildConfig.enabled = false
+//    generateReleaseBuildConfig.enabled = false
+//    generateDebugBuildConfig.enabled = false
+
+    publishing {
+        publications {
+            MyPublication(MavenPublication) {
+                from components.release
+                groupId group
+                artifactId artifact
+                version version
+            }
+        }
+    }
+
+    // Bintray
+    bintray {
+        user = properties.getProperty("bintray.user")
+        key = properties.getProperty("bintray.apikey")
+        publications = ['MyPublication']
+        pkg {
+            repo = 'maven'
+            name = artifact
+            userOrg = 'mobilap'
+            desc = 'Add native network capability to godot engine.'
+            websiteUrl = 'https://github.com/DrMoriarty/godot-network'
+            vcsUrl = 'https://github.com/DrMoriarty/godot-network.git'
+            licenses = ["MIT", "BSD"]
+            publish = true
+            publicDownloadNumbers = true
+            version {
+            }
+        }
+    }
 }
