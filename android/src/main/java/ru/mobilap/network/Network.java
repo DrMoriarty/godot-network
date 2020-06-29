@@ -41,7 +41,7 @@ public class Network extends GodotPlugin {
     */
 
     @Override
-    public View onMainCreateView(Activity activity) {
+    public View onMainCreate(Activity activity) {
         return null;
     }
 
