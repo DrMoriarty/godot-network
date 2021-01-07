@@ -1,0 +1,21 @@
+{
+  "name": "network",
+  "description": "Native network functions",
+  "version": "0.1.0",
+  "license": "MIT",
+  "url": "https://github.com/DrMoriarty/godot-network",
+  "dependencies": [
+  ],
+  "files": {
+    "scripts": "scripts"
+  },
+  "autoload": {
+    "Network": "*res://scripts/Network.gd"
+  },
+  "platform_android": {
+    "files": {
+      "android/Network.gdap": "android/plugins/",
+      "android/build/outputs/aar/Network.release.aar": "android/plugins/"
+    }
+  }
+}

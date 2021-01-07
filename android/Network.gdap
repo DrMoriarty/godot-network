@@ -1,8 +1,8 @@
 [config]
 
 name="Network"
-binary_type="remote"
-binary="ru.mobilap.godot:godot-network:+"
+binary_type="local"
+binary="Network.release.aar"
 
 [dependencies]
 
