@@ -1,11 +1,17 @@
 {
   "name": "network",
+  "display_name": "Network",
   "description": "Native network functions",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "godot_version": "3.3.0",
   "license": "MIT",
   "url": "https://github.com/DrMoriarty/godot-network",
-  "dependencies": [
-  ],
+  "category": "misc",
+  "author": {
+    "name": "DrMoriarty",
+    "url": "https://github.com/DrMoriarty",
+    "donate": "https://ko-fi.com/drmoriarty"
+  },
   "files": {
     "scripts": "scripts"
   },
